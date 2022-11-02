@@ -1,0 +1,7 @@
+{
+  "databaseURL": "https://Desmond-Obisi-s-workspace-cktogf.us-east-1.xata.sh/db/blog",
+  "codegen": {
+    "output": "src/xata.js",
+    "moduleType": "esm"
+  }
+}
