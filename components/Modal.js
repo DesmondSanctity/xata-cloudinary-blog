@@ -13,7 +13,6 @@ import {
     Stack,
     Checkbox,
     CheckboxGroup,
-    useCheckbox,
     Input,
     FormControl,
     FormLabel,
@@ -24,27 +23,17 @@ import {
 import styles from '../styles/Home.module.css';
 import generateSocialImage from '../components/GenerateImg'
 
-
-// const xata = getXataClient();
-
 const handleSubmit = () => {
 
 }
 
-
-
 const socialImage = generateSocialImage({
     title: 'This Is a Post With an Automatically Generated Social Sharing Card',
     tagline: 'Writing blog posts is fun when the robots do some of the work!',
-    cloudName: 'jlengstorf',
-    imagePublicID: 'lwj/blog-post-card',
-    titleFont: 'lwj-title.otf',
-    titleExtraConfig: '_line_spacing_-10',
-    taglineFont: 'lwj-tagline.otf',
-    textColor: '232129',
+    cloudName: 'dqwrnan7f',
+    imagePublicID: 'dex/example-black_iifqhm',
 });
 console.log(socialImage);
-
 
 
 const PostForm = () => {
@@ -59,14 +48,6 @@ const PostForm = () => {
         setTags(list);
     }
 
-
-    // const record = await xata.db.posts.create({
-    //     title: title,
-    //     body: body,
-    //     tags: tags,
-    //     image: socialImage,
-    // });
-    // console.log(record);
     return (
         <>
             <FormControl>

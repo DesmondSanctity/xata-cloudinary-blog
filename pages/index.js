@@ -4,9 +4,34 @@ import styles from '../styles/Home.module.css'
 import CreatePost from '../components/Modal'
 
 import { Flex, Button } from '@chakra-ui/react'
+import AllPost from '../components/AllPost'
 
 
-export default function Home() {
+const createData = async () => {
+  const response = await fetch('/api/create', {
+    method: 'POST',
+  })
+
+  if (response.ok) {
+    window?.location.reload()
+  }
+}
+
+const deleteData = async (id) => {
+  const { status } = await fetch('/api/delete', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ id }),
+  })
+
+  if (status === 200) {
+    window?.location.reload()
+  }
+}
+
+export default function Home({posts}) {
   return (
     <div className={styles.container}>
       <Head>
@@ -22,42 +47,14 @@ export default function Home() {
         <Flex gap={3}>
           <CreatePost />
 
-          <Button className={styles.description} colorScheme='black' variant='outline'>
+          <Button className={styles.description} colorScheme='black' variant='outline'  onClick={() => {
+                createData()
+              }}>
             Check source code
           </Button>
         </Flex>
 
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h2>Documentation &rarr;</h2>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h2>Learn &rarr;</h2>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/canary/examples"
-            className={styles.card}
-          >
-            <h2>Examples &rarr;</h2>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.card}
-          >
-            <h2>Deploy &rarr;</h2>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
+        <AllPost/>
       </main>
 
       <footer className={styles.footer}>
