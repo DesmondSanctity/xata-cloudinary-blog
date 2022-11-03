@@ -2,22 +2,9 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import CreatePost from '../components/Modal'
-import generateSocialImage from '../components/GenerateImg'
 
 import { Flex, Button } from '@chakra-ui/react'
 
-const socialImage = generateSocialImage({
-  title: 'Automatically Generated Social Sharing Card',
-  tagline: 'Writing blog posts is fun when the robots do some of the work!',
-  cloudName: 'dyvtibz5o',
-  imagePublicID: 'blog/avatar-mufcjy',
-  titleFont: 'lwj-title.otf',
-  titleExtraConfig: '_line_spacing_-10',
-  taglineFont: 'lwj-tagline.otf',
-  textColor: '232129',
-});
-
-console.log(socialImage);
 
 export default function Home() {
   return (
@@ -30,7 +17,7 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to Blog with Xata & Cloudinary
+          Blog with Xata & Cloudinary
         </h1>
         <Flex gap={3}>
           <CreatePost />
