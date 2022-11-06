@@ -5,8 +5,8 @@ const xata = getXataClient()
 
 export default async function getAllXata(req, res) {
     const records = await xata.db.posts.getAll();
-    res.json({
+    return res.json({
         ok: true,
-        data: records
+        posts: records
     })
 }

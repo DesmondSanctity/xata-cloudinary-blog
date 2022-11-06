@@ -20,8 +20,8 @@ import {
     FormHelperText,
 } from '@chakra-ui/react'
 
-import styles from '../styles/Home.module.css';
 import generateSocialImage from '../components/GenerateImg'
+import MyEditor from './RichText';
 
 const handleSubmit = () => {
 
@@ -68,7 +68,7 @@ const PostForm = () => {
             </FormControl>
             <FormControl mt={4}>
                 <FormLabel>Body</FormLabel>
-                <Textarea placeholder='Body' onChange={e => { setBody(e.target.value) }} />
+                <Textarea placeholder='Body' size={'lg'} onChange={e => { setBody(e.target.value) }} />
             </FormControl>
         </>
     )
@@ -79,9 +79,9 @@ const CreatePost = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Button className={styles.description} colorScheme='black' variant='outline' onClick={onOpen}>Create Post</Button>
+            <Button colorScheme='black' variant='outline' onClick={onOpen}>Create Post</Button>
 
-            <Modal isOpen={isOpen} onClose={onClose}>
+            <Modal isOpen={isOpen} onClose={onClose} size={'5xl'}>
                 <ModalOverlay />
                 <ModalContent>
                     <ModalHeader>Modal Title</ModalHeader>
