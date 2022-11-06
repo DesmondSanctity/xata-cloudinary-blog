@@ -1,63 +1,66 @@
-import { useState, useEffect } from 'react'
-import { Grid, GridItem, Box, Image } from '@chakra-ui/react'
+import { Box, Image, Badge, Grid, GridItem } from '@chakra-ui/react';
 
-const AllPost = () => {
-    const [posts, setPosts] = useState([''])
 
-    useEffect(() => {
-        const getData = async () => {
-            const response = await fetch('/api/allposts', {
-                method: 'GET',
-            })
-            console.log(response)
-            if (response.body) {
-                return response.body
-            }
-        }
-        getData();
-    }, [])
-
+const AllPosts = ({ posts }) => {
 
     return (
-        <>
-            {posts && posts.map((post, index) => {
-                <Grid templateColumns='repeat(5, 1fr)' gap={6} >
-                    <GridItem w='100%' h='10' bg='blue.500'>
-                        <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                            <Image src='#' alt='blog-img' />
-                            <Box p='6'>
-                                <Box
-                                    mt='1'
-                                    fontWeight='semibold'
-                                    as='h4'
-                                    lineHeight='tight'
-                                    noOfLines={1}
-                                >
-                                    Hello
-                                </Box>
+        <Grid templateColumns='repeat(4, 1fr)' gap={6} mt={5}>
+            {
+                posts && posts.map((post, index) => {
+                    return (
+                        <GridItem>
+                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' key={index}>
+                                <Image src={post.image} alt='blog-image' />
 
-                                <Box>
-                                    Hi
+                                <Box p='6'>
+                                    <Box display='flex' alignItems='baseline'>
+                                        <Badge borderRadius='full' px='2' colorScheme='teal'>
+                                            Tags:
+                                        </Badge>
+                                        {post.tags.length > 0 && post.tags.map((tag, index) => {
+                                            return (
+                                                <Box key={index}
+                                                    color='gray.500'
+                                                    fontWeight='semibold'
+                                                    letterSpacing='wide'
+                                                    fontSize='xs'
+                                                    textTransform='lowercase'
+                                                    ml='2'
+                                                >
+                                                    {(index ? ',' : '') + ' ' + tag}
+                                                </Box>
+                                            )
+                                        })}
+                                    </Box>
+
+                                    <Box
+                                        mt='1'
+                                        fontWeight='semibold'
+                                        as='h4'
+                                        lineHeight='tight'
+                                        noOfLines={3}
+                                    >
+                                        {post.title}
+                                    </Box>
+
+                                    <Box
+                                        mt='1'
+                                        fontWeight='light'
+                                        as='h4'
+                                        lineHeight='tight'
+                                        noOfLines={5}
+                                    >
+                                        {post.body}
+                                    </Box>
                                 </Box>
                             </Box>
-                        </Box>
-                    </GridItem>
-                </Grid>
-            })}
-
-        </>
+                        </GridItem>
+                    )
+                })
+            }
+        </Grid>
     )
 }
 
-export const getServerSideProps = async () => {
-    const xata = await getXataClient()
-    const posts = await xata.db.posts.getAll()
-    return {
-        props: {
-            posts,
-        },
-    }
-}
 
-
-export default AllPost;
+export default AllPosts
