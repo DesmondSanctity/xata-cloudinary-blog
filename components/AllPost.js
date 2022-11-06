@@ -1,7 +1,41 @@
-import { Box, Image, Badge, Grid, GridItem } from '@chakra-ui/react';
-
+import { Box, Image, Badge, Grid, GridItem, Flex, Spacer, ButtonGroup } from '@chakra-ui/react';
+import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
+import {toast} from 'react-toastify'
+import UpdatePost from './UpdateModal';
 
 const AllPosts = ({ posts }) => {
+
+    const deleteData = async (id) => {
+        const { status } = await fetch('/api/delete', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id }),
+        })
+      
+        if (status === 200) {
+            toast.warn("post deleted successfully", {
+                theme: "dark"
+              })
+        }
+      }
+
+      const updateData = async (id) => {
+        const { status } = await fetch('/api/update', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ id, title, body, tags }),
+        })
+      
+        if (status === 200) {
+            toast.success("post deleted successfully", {
+                theme: "dark"
+              })
+        }
+      }
 
     return (
         <Grid templateColumns='repeat(4, 1fr)' gap={6} mt={5}>
@@ -13,7 +47,7 @@ const AllPosts = ({ posts }) => {
                                 <Image src={post.image} alt='blog-image' />
 
                                 <Box p='6'>
-                                    <Box display='flex' alignItems='baseline'>
+                                    <Flex>
                                         <Badge borderRadius='full' px='2' colorScheme='teal'>
                                             Tags:
                                         </Badge>
@@ -31,7 +65,12 @@ const AllPosts = ({ posts }) => {
                                                 </Box>
                                             )
                                         })}
-                                    </Box>
+                                        <Spacer />
+                                        <ButtonGroup gap={2}>
+                                            <UpdatePost id={post.id} />
+                                            <DeleteIcon onClick={()=> deleteData(post.id)}/>
+                                        </ButtonGroup>
+                                    </Flex>
 
                                     <Box
                                         mt='1'

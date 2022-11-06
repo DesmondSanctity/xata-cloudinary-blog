@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import CreatePost from '../components/Modal'
+import CreatePost from '../components/CreateModal'
 import { Flex, Button, ButtonGroup, Text, Spacer } from '@chakra-ui/react'
 import AllPosts from '../components/AllPost'
 
@@ -14,24 +14,8 @@ const createData = async () => {
   }
 }
 
-const deleteData = async (id) => {
-  const { status } = await fetch('/api/delete', {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({ id }),
-  })
-
-  if (status === 200) {
-    window?.location.reload()
-  }
-}
-
 export default function Home() {
   const [posts, setPosts] = useState([])
-
-    console.log(posts)
 
     useEffect(() => {
         const getData = async () => {
