@@ -106,7 +106,7 @@ const CreatePost = () => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
         <>
-            <Button colorScheme='black' variant='outline' onClick={onOpen}>Create Post</Button>
+            <Button colorScheme='black' variant='outline' onClick={onOpen} mt={2} size={'sm'}>Create Post</Button>
 
             <Modal isOpen={isOpen} onClose={onClose} size={'5xl'}>
                 <ModalOverlay />
