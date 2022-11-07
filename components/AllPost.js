@@ -1,49 +1,36 @@
-import { Box, Image, Badge, Grid, GridItem, Flex, Spacer, ButtonGroup } from '@chakra-ui/react';
-import { EditIcon, DeleteIcon } from '@chakra-ui/icons'
-import {toast} from 'react-toastify'
-import UpdatePost from './UpdateModal';
+import NextLink from 'next/link'
+import { Box, Image, Badge, Grid, GridItem, Flex, Spacer, ButtonGroup, Link } from '@chakra-ui/react';
+import { DeleteIcon, EditIcon, ExternalLinkIcon } from '@chakra-ui/icons'
+import { toast } from 'react-toastify'
+
+import ReactMarkdown from 'react-markdown'
+import remarkGfm from 'remark-gfm'
 
 const AllPosts = ({ posts }) => {
 
     const deleteData = async (id) => {
         const { status } = await fetch('/api/delete', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ id }),
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ id }),
         })
-      
-        if (status === 200) {
-            toast.warn("post deleted successfully", {
-                theme: "dark"
-              })
-        }
-      }
 
-      const updateData = async (id) => {
-        const { status } = await fetch('/api/update', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ id, title, body, tags }),
-        })
-      
         if (status === 200) {
             toast.success("post deleted successfully", {
                 theme: "dark"
-              })
+            })
         }
-      }
+    }
 
     return (
-        <Grid templateColumns='repeat(4, 1fr)' gap={6} mt={5}>
+        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
             {
                 posts && posts.map((post, index) => {
                     return (
-                        <GridItem>
-                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' key={index}>
+                        <GridItem key={index}>
+                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' >
                                 <Image src={post.image} alt='blog-image' />
 
                                 <Box p='6'>
@@ -67,30 +54,33 @@ const AllPosts = ({ posts }) => {
                                         })}
                                         <Spacer />
                                         <ButtonGroup gap={2}>
-                                            <UpdatePost id={post.id} />
-                                            <DeleteIcon onClick={()=> deleteData(post.id)}/>
+                                            <NextLink href={`/update/${post.id}`} legacyBehavior passHref>
+                                                <Link><EditIcon /></Link>
+                                            </NextLink>
+                                            <DeleteIcon onClick={() => deleteData(post.id)} mt={1}/>
                                         </ButtonGroup>
                                     </Flex>
 
                                     <Box
                                         mt='1'
                                         fontWeight='semibold'
-                                        as='h4'
                                         lineHeight='tight'
                                         noOfLines={3}
                                     >
-                                        {post.title}
+                                        <NextLink href={`/${post.id}`} legacyBehavior passHref>
+                                            <Link>{post.title}<ExternalLinkIcon mx='2px' /></Link>
+                                        </NextLink>
                                     </Box>
 
                                     <Box
                                         mt='1'
                                         fontWeight='light'
-                                        as='h4'
                                         lineHeight='tight'
                                         noOfLines={5}
                                     >
-                                        {post.body}
+                                        <ReactMarkdown children={post.body} remarkPlugins={[remarkGfm]} />
                                     </Box>
+
                                 </Box>
                             </Box>
                         </GridItem>
