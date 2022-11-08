@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import CreatePost from '../components/CreateModal'
-import {FaGithub} from 'react-icons/fa'
-import { Flex, Icon, ButtonGroup, Text, Spacer, VStack } from '@chakra-ui/react'
+import { FaGithub } from 'react-icons/fa'
+import { Flex, Icon, ButtonGroup, Text, Spacer, VStack, Link } from '@chakra-ui/react'
 import AllPosts from '../components/AllPost'
 
 
@@ -28,7 +28,7 @@ export default function Home() {
         <Spacer />
         <ButtonGroup gap={3} mt={5}>
           <CreatePost />
-          <Icon as={FaGithub} w={10} h={10} />
+          <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog'><Icon as={FaGithub} w={10} h={10} /></Link>
         </ButtonGroup>
       </Flex>
 

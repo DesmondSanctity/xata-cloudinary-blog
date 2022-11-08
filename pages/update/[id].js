@@ -11,9 +11,10 @@ import {
     Flex,
     Text,
     Spacer,
-    Icon
+    Icon,
+    Link
 } from '@chakra-ui/react'
-import {FaGithub} from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import generateSocialImage from '../../components/GenerateImg'
 
@@ -92,7 +93,7 @@ const UpdatePost = () => {
                     Blog with Xata and Cloudinary
                 </Text>
                 <Spacer />
-                <Icon as={FaGithub} w={10} h={10} mt={7} />
+                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog'><Icon as={FaGithub} w={10} h={10} mt={7}/></Link>
             </Flex>
             <Container maxW='4xl' centerContent>
                 <FormControl >
