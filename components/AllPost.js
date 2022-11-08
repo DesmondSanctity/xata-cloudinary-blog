@@ -80,7 +80,7 @@ const AllPosts = ({ posts }) => {
                                         lineHeight='tight'
                                         noOfLines={5}
                                     >
-                                        <ReactMarkdown children={post.body} remarkPlugins={[remarkGfm]} />
+                                        <ReactMarkdown remarkPlugins={[remarkGfm]}>{post.body}</ReactMarkdown>
                                     </Box>
 
                                 </Box>

@@ -51,7 +51,7 @@ const PostDetails = () => {
                             lineHeight='tight'
                             ml={5}
                         >
-                            <ReactMarkdown children={post.body} remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}></ReactMarkdown>
+                            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}>{post.body}</ReactMarkdown>
                         </Box>
 
                     </Box>
