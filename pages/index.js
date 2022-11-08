@@ -23,11 +23,11 @@ export default function Home() {
     <>
       <main className='main'>
           <div className='grid'>
-            <Text as='b' fontSize='20px' color='black' mt={5} >
+            <Text as='b' fontSize='20px' color='black' >
               Blog with Xata and Cloudinary
             </Text>
             <Spacer />
-            <ButtonGroup gap={3} mt={5} ml={5}>
+            <ButtonGroup gap={3} ml={5}>
               <CreatePost />
               <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} /></Link>
             </ButtonGroup>
