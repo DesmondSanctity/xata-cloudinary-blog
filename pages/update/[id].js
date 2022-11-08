@@ -93,7 +93,7 @@ const UpdatePost = () => {
                     Blog with Xata and Cloudinary
                 </Text>
                 <Spacer />
-                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog'><Icon as={FaGithub} w={10} h={10} mt={7}/></Link>
+                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7}/></Link>
             </Flex>
             <Container maxW='4xl' centerContent>
                 <FormControl >

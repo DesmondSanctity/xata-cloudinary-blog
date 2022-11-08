@@ -28,7 +28,7 @@ export default function Home() {
         <Spacer />
         <ButtonGroup gap={3} mt={5}>
           <CreatePost />
-          <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog'><Icon as={FaGithub} w={10} h={10} /></Link>
+          <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} /></Link>
         </ButtonGroup>
       </Flex>
 
