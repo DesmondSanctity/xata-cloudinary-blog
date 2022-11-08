@@ -36,7 +36,7 @@ const PostDetails = () => {
                 <Text as='b' fontSize='20px' color='black' mt={5}>
                     Blog with Xata and Cloudinary
                 </Text>
-                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5}/></Link>
+                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5} /></Link>
             </div>
             <Container maxW='container.sm'>
                 <Image src={post.image} alt='blog-image' />

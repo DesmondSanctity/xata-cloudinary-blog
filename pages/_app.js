@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { ChakraProvider } from '@chakra-ui/react'
-import {ToastContainer} from 'react-toastify'
+import { ToastContainer } from 'react-toastify'
 import "react-toastify/dist/ReactToastify.min.css";
 
 

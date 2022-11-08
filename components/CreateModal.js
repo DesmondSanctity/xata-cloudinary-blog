@@ -5,7 +5,6 @@ import {
     ModalOverlay,
     ModalContent,
     ModalHeader,
-    ModalFooter,
     ModalBody,
     ModalCloseButton,
     Button,
@@ -13,8 +12,6 @@ import {
     Input,
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
 } from '@chakra-ui/react'
 import { toast } from 'react-toastify'
 import generateSocialImage from './GenerateImg'
@@ -41,7 +38,7 @@ const PostForm = () => {
             let tags_new;
             if (tagArr.length >= 4) {
                 tags_new = tagArr.slice(0, 4)
-            }else tags_new = tagArr;
+            } else tags_new = tagArr;
             console.log(tags_new);
 
             //Generate social card
