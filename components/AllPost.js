@@ -1,5 +1,5 @@
 import NextLink from 'next/link'
-import { Box, Image, Badge, Grid, GridItem, Flex, Spacer, ButtonGroup, Link } from '@chakra-ui/react';
+import { Box, Image, Badge, Flex, Spacer, ButtonGroup, Link } from '@chakra-ui/react';
 import { DeleteIcon, EditIcon, ExternalLinkIcon } from '@chakra-ui/icons'
 import { toast } from 'react-toastify'
 
@@ -27,12 +27,12 @@ const AllPosts = ({ posts }) => {
     }
 
     return (
-        <Grid templateColumns='repeat(4, 1fr)' gap={6}>
+        <div className='grid'>
             {
                 posts && posts.map((post, index) => {
                     return (
-                        <GridItem key={index}>
-                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' >
+                        <div className='card' key={index}>
+                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' ml={5} mb={2}>
                                 <Image src={post.image} alt='blog-image' />
 
                                 <Box p='6'>
@@ -85,11 +85,11 @@ const AllPosts = ({ posts }) => {
 
                                 </Box>
                             </Box>
-                        </GridItem>
+                        </div>
                     )
                 })
             }
-        </Grid>
+        </div>
     )
 }
 

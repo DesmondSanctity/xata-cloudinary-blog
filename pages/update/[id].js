@@ -6,9 +6,7 @@ import {
     Input,
     FormControl,
     FormLabel,
-    VStack,
     Container,
-    Flex,
     Text,
     Spacer,
     Icon,
@@ -87,14 +85,14 @@ const UpdatePost = () => {
     }
 
     return (
-        <VStack>
-            <Flex minWidth={'max-content'} gap='20' mt={10} mb={20}>
-                <Text as='b' fontSize='30px' color='black' mt={5} >
+        <main className='main'>
+            <div className='grid'>
+                <Text as='b' fontSize='20px' color='black' mt={5} >
                     Blog with Xata and Cloudinary
                 </Text>
                 <Spacer />
-                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7}/></Link>
-            </Flex>
+                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5}/></Link>
+            </div>
             <Container maxW='4xl' centerContent>
                 <FormControl >
                     <FormLabel>Post Title</FormLabel>
@@ -112,7 +110,7 @@ const UpdatePost = () => {
                 </FormControl>
                 <Button colorScheme='black' variant='outline' type='submit' mt={5} onClick={() => handleSubmit()}>Submit</Button>
             </Container>
-        </VStack>
+        </main>
     )
 }
 

@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
-import { Box, VStack, Image, Flex, Text, Spacer, Icon, Link } from '@chakra-ui/react'
-import {FaGithub} from 'react-icons/fa'
+import { Box, Image, Text, Icon, Link, Container } from '@chakra-ui/react'
+import { FaGithub } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
@@ -31,33 +31,30 @@ const PostDetails = () => {
 
 
     return (
-        <Box w='100%' p={4} >
-            <VStack>
-            <Flex minWidth={'max-content'} gap='20' mt={10} mb={15}>
-                <Text as='b' fontSize='30px' color='black' mt={5} >
+        <main className='main'>
+            <div className='grid'>
+                <Text as='b' fontSize='20px' color='black' mt={5}>
                     Blog with Xata and Cloudinary
                 </Text>
-                <Spacer />
-                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} /></Link>
-            </Flex>
-                <Box maxW='4xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>
-                    <Image src={post.image} alt='blog-image' />
+                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5}/></Link>
+            </div>
+            <Container maxW='container.sm'>
+                <Image src={post.image} alt='blog-image' />
 
-                    <Box p='6'>
+                <Box p='6'>
 
-                        <Box
-                            mt='1'
-                            fontWeight='light'
-                            lineHeight='tight'
-                            ml={5}
-                        >
-                            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}>{post.body}</ReactMarkdown>
-                        </Box>
-
+                    <Box
+                        mt='1'
+                        fontWeight='light'
+                        lineHeight='tight'
+                        ml={5}
+                    >
+                        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}>{post.body}</ReactMarkdown>
                     </Box>
+
                 </Box>
-            </VStack>
-        </Box>
+            </Container>
+        </main>
     )
 }
 
