@@ -19,9 +19,11 @@ const AllPosts = ({ posts }) => {
 
         if (status === 200) {
             toast.success("post deleted successfully", {
-                theme: "dark"
+                theme: "dark",
+                autoClose: 5000
             })
         }
+        window?.location.reload()
     }
 
     return (
@@ -57,7 +59,7 @@ const AllPosts = ({ posts }) => {
                                             <NextLink href={`/update/${post.id}`} legacyBehavior passHref>
                                                 <Link><EditIcon /></Link>
                                             </NextLink>
-                                            <DeleteIcon onClick={() => deleteData(post.id)} mt={1}/>
+                                            <DeleteIcon onClick={() => deleteData(post.id)} mt={1} />
                                         </ButtonGroup>
                                     </Flex>
 

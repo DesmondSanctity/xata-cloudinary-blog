@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
-import { Box, VStack, Image, Flex, Text, Spacer, Button } from '@chakra-ui/react'
-
+import { Box, VStack, Image, Flex, Text, Spacer, Icon } from '@chakra-ui/react'
+import {FaGithub} from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 import rehypeHighlight from 'rehype-highlight'
@@ -33,15 +33,13 @@ const PostDetails = () => {
     return (
         <Box w='100%' p={4} >
             <VStack>
-                <Flex minWidth={'max-content'} alignItems='center' gap='2' mt={10} mb={20}>
-                    <Text as='b' fontSize='30px' color='black' mt={5} >
-                        Blog with Xata and Cloudinary
-                    </Text>
-                    <Spacer />
-                    <Button colorScheme='black' variant='outline' mt={5}>
-                        Check source code
-                    </Button>
-                </Flex>
+            <Flex minWidth={'max-content'} gap='20' mt={10} mb={15}>
+                <Text as='b' fontSize='30px' color='black' mt={5} >
+                    Blog with Xata and Cloudinary
+                </Text>
+                <Spacer />
+                <Icon as={FaGithub} w={10} h={10} mt={7} />
+            </Flex>
                 <Box maxW='4xl' borderWidth='1px' borderRadius='lg' overflow='hidden'>
                     <Image src={post.image} alt='blog-image' />
 

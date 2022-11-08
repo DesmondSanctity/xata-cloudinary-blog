@@ -39,7 +39,7 @@ const PostForm = () => {
         } else {
             const tagArr = newTags.split(/[, ]+/);
             let tags_new;
-            if (tagArr.length > 4) {
+            if (tagArr.length >= 4) {
                 tags_new = tagArr.slice(0, 4)
             }
             console.log(tags_new);

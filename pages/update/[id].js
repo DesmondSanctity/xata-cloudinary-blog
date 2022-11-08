@@ -6,14 +6,14 @@ import {
     Input,
     FormControl,
     FormLabel,
-    FormErrorMessage,
-    FormHelperText,
     VStack,
     Container,
     Flex,
     Text,
-    Spacer
+    Spacer,
+    Icon
 } from '@chakra-ui/react'
+import {FaGithub} from 'react-icons/fa'
 import { toast } from 'react-toastify'
 import generateSocialImage from '../../components/GenerateImg'
 
@@ -28,19 +28,15 @@ const UpdatePost = () => {
 
     const router = useRouter();
     const { id } = router.query;
-    console.log({ router });
-    console.log(id)
 
     //Get data from xata db
     const { data, error } = useSWR(`/api/post?id=${id}`, fetcher)
 
     if (error) return <div>failed to load</div>
     if (!data) return <div>loading...</div>
-    console.log(data.post.tags)
 
     // store data in state
     const post = data.post;
-
 
     //Convert string tags to array
     const newTags = tags;
@@ -77,7 +73,7 @@ const UpdatePost = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify({post, id})
+            body: JSON.stringify({ post, id })
         })
 
         if (response.ok) {
@@ -91,14 +87,12 @@ const UpdatePost = () => {
 
     return (
         <VStack>
-            <Flex minWidth={'max-content'} alignItems='center' gap='2' mt={10} mb={20}>
+            <Flex minWidth={'max-content'} gap='20' mt={10} mb={20}>
                 <Text as='b' fontSize='30px' color='black' mt={5} >
                     Blog with Xata and Cloudinary
                 </Text>
                 <Spacer />
-                <Button colorScheme='black' variant='outline' mt={5}>
-                    Check source code
-                </Button>
+                <Icon as={FaGithub} w={10} h={10} mt={7} />
             </Flex>
             <Container maxW='4xl' centerContent>
                 <FormControl >

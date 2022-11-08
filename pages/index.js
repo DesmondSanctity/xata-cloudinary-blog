@@ -5,16 +5,6 @@ import { Flex, Icon, ButtonGroup, Text, Spacer, VStack } from '@chakra-ui/react'
 import AllPosts from '../components/AllPost'
 
 
-const createData = async () => {
-  const response = await fetch('/api/create', {
-    method: 'POST',
-  })
-
-  if (response.ok) {
-    window?.location.reload()
-  }
-}
-
 export default function Home() {
   const [posts, setPosts] = useState([])
 
