@@ -32,7 +32,7 @@ const AllPosts = ({ posts }) => {
                 posts && posts.map((post, index) => {
                     return (
                         <div className='card' key={index}>
-                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' ml={5} mb={2}>
+                            <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden' mt={5} mb={2}>
                                 <Image src={post.image} alt='blog-image' />
 
                                 <Box p='6'>

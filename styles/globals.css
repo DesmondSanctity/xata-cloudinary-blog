@@ -60,7 +60,8 @@ a {
   justify-content: center;
   flex-wrap: wrap;
   max-width: 80%;
-  margin-top: 1rem;
+  margin-top: 3rem;
+  margin: auto;
 }
 
 .card:hover,
@@ -72,7 +73,7 @@ a {
 
 @media (max-width: 600px) {
   .grid {
-    width: 100%;
+    max-width: 100%;
     flex-direction: column;
   }
 }
