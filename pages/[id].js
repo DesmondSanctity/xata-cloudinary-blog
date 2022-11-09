@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 
-import { Box, Image, Text, Icon, Link, Container } from '@chakra-ui/react'
+import { Box, Image, Text, Icon, Link, Container, Spinner, Alert, AlertDescription, AlertIcon, AlertTitle } from '@chakra-ui/react'
 import { FaGithub } from 'react-icons/fa'
 import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
@@ -24,10 +24,16 @@ const PostDetails = () => {
     //Getting data from xata using swr
     const { data, error } = useSWR(`/api/post?id=${id}`, fetcher)
 
-    if (error) return <div>failed to load</div>
-    if (!data) return <div>loading...</div>
-    const post = data.post;
+    if (error) return (
+        <div><Alert status='error'>
+            <AlertIcon />
+            <AlertTitle>Error!</AlertTitle>
+            <AlertDescription>Failed to Load.</AlertDescription>
+        </Alert></div>
+    )
+    if (!data) return <div><Spinner color='red.500' /></div>
 
+    const post = data.post;
 
 
     return (

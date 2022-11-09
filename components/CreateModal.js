@@ -27,13 +27,14 @@ const PostForm = () => {
 
 
     const handleSubmit = async () => {
-
+        // Handling empty input error
         if (title == '' || body == '' || tags == '') {
             toast.warn("post cannot be empty", {
                 theme: "dark",
                 autoClose: 8000
             })
         } else {
+            // Reducing number of accepted tags to 4 if user inputs more
             const tagArr = newTags.split(/[, ]+/);
             let tags_new;
             if (tagArr.length >= 4) {
