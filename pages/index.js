@@ -35,7 +35,7 @@ export default function Home() {
           <AllPosts posts={posts} />
       </main>
       <footer className='footer'>
-        <a href="https://dexcode.xyz" target="_blank" rel="noopener noreferrer">
+        <a href="https://dexcodes.xyz" target="_blank" rel="noopener noreferrer">
           Created by&nbsp;<b>Anon</b>&nbsp;⚡️
         </a>
       </footer>

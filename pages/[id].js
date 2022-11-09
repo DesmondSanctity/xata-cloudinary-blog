@@ -37,30 +37,37 @@ const PostDetails = () => {
 
 
     return (
-        <main className='main'>
-            <div className='grid'>
-                <Text as='b' fontSize='20px' color='black' mt={5}>
-                    Blog with Xata and Cloudinary
-                </Text>
-                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5} /></Link>
-            </div>
-            <Container maxW='container.sm'>
-                <Image src={post.image} alt='blog-image' />
+        <>
+            <main className='main'>
+                <div className='grid'>
+                    <Text as='b' fontSize='20px' color='black' mt={5}>
+                        Blog with Xata and Cloudinary
+                    </Text>
+                    <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5} /></Link>
+                </div>
+                <Container maxW='container.sm'>
+                    <Image src={post.image} alt='blog-image' />
 
-                <Box p='6'>
+                    <Box p='6'>
 
-                    <Box
-                        mt='1'
-                        fontWeight='light'
-                        lineHeight='tight'
-                        ml={5}
-                    >
-                        <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}>{post.body}</ReactMarkdown>
+                        <Box
+                            mt='1'
+                            fontWeight='light'
+                            lineHeight='tight'
+                            ml={5}
+                        >
+                            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeHighlight, rehypeRaw, rehypeSanitize]}>{post.body}</ReactMarkdown>
+                        </Box>
+
                     </Box>
-
-                </Box>
-            </Container>
-        </main>
+                </Container>
+            </main>
+            <footer className='footer'>
+                <a href="https://dexcodes.xyz" target="_blank" rel="noopener noreferrer">
+                    Created by&nbsp;<b>Anon</b>&nbsp;⚡️
+                </a>
+            </footer>
+        </>
     )
 }
 

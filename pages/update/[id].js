@@ -99,32 +99,39 @@ const UpdatePost = () => {
     }
 
     return (
-        <main className='main'>
-            <div className='grid'>
-                <Text as='b' fontSize='20px' color='black' mt={5} >
-                    Blog with Xata and Cloudinary
-                </Text>
-                <Spacer />
-                <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5} /></Link>
-            </div>
-            <Container maxW='4xl' centerContent>
-                <FormControl >
-                    <FormLabel>Post Title</FormLabel>
-                    <Input placeholder='Title' defaultValue={res.title} onChange={e => { setTitle(e.target.value) }} />
-                </FormControl>
+        <>
+            <main className='main'>
+                <div className='grid'>
+                    <Text as='b' fontSize='20px' color='black' mt={5} >
+                        Blog with Xata and Cloudinary
+                    </Text>
+                    <Spacer />
+                    <Link href='https://github.com/DesmondSanctity/xata-cloudinary-blog' isExternal><Icon as={FaGithub} w={10} h={10} mt={7} ml={5} /></Link>
+                </div>
+                <Container maxW='4xl' centerContent>
+                    <FormControl >
+                        <FormLabel>Post Title</FormLabel>
+                        <Input placeholder='Title' defaultValue={res.title} onChange={e => { setTitle(e.target.value) }} />
+                    </FormControl>
 
-                <FormControl mt={4}>
-                    <FormLabel>Post Tags</FormLabel>
-                    <Input placeholder='add tags separated by commas' defaultValue={res.tags} onChange={e => { setTags(e.target.value) }} />
-                </FormControl>
+                    <FormControl mt={4}>
+                        <FormLabel>Post Tags</FormLabel>
+                        <Input placeholder='add tags separated by commas' defaultValue={res.tags} onChange={e => { setTags(e.target.value) }} />
+                    </FormControl>
 
-                <FormControl mt={4}>
-                    <FormLabel>Post Body</FormLabel>
-                    <Textarea placeholder='you can use markdown here' size='sm' defaultValue={res.body} onChange={e => { setBody(e.target.value) }} />
-                </FormControl>
-                <Button colorScheme='black' variant='outline' type='submit' mt={5} onClick={() => handleSubmit()}>Submit</Button>
-            </Container>
-        </main>
+                    <FormControl mt={4}>
+                        <FormLabel>Post Body</FormLabel>
+                        <Textarea placeholder='you can use markdown here' size='sm' defaultValue={res.body} onChange={e => { setBody(e.target.value) }} />
+                    </FormControl>
+                    <Button colorScheme='black' variant='outline' type='submit' mt={5} onClick={() => handleSubmit()}>Submit</Button>
+                </Container>
+            </main>
+            <footer className='footer'>
+                <a href="https://dexcodes.xyz" target="_blank" rel="noopener noreferrer">
+                    Created by&nbsp;<b>Anon</b>&nbsp;⚡️
+                </a>
+            </footer>
+        </>
     )
 }
 
